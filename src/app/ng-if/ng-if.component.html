@@ -1,0 +1,42 @@
+<mat-card>
+
+  <mat-card-title>
+    Meu seletor
+  </mat-card-title> 
+
+  <mat-card-content>
+
+    <section>
+        <p>Seleciona ai :</p>
+        <section>
+            <mat-checkbox [(ngModel)]="showName" name="showName">Nome</mat-checkbox>
+            <mat-checkbox [(ngModel)]="showAddress" name="showAddress">Endereço</mat-checkbox>
+            <mat-checkbox [(ngModel)]="showPhone" name="showPhone">Telefone</mat-checkbox>
+            <mat-checkbox [(ngModel)]="showAge" name="showAge">Idade</mat-checkbox>
+        </section>
+    </section>
+
+    <br><br>
+
+    <section>
+        <mat-form-field *ngIf="showName">
+            <input matInput placeholder="Nome">
+        </mat-form-field>
+        <mat-form-field *ngIf="showAddress">
+            <input matInput placeholder="Endereço">
+        </mat-form-field>
+        <mat-form-field  *ngIf="showPhone">
+            <input matInput placeholder="Telefone">
+        </mat-form-field>
+        <mat-form-field  *ngIf="showAge">
+            <input matInput placeholder="Idade" type="number">
+        </mat-form-field>                        
+    </section>
+
+  </mat-card-content>
+
+  <mat-card-footer>
+      <app-sub-ng-if *ngIf="showName && showAddress && showAge && showPhone"></app-sub-ng-if>
+  </mat-card-footer>
+  
+</mat-card>
